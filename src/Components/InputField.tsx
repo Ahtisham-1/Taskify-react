@@ -1,11 +1,12 @@
 interface TodoInterface {
   todo: string;
   setTodo: React.Dispatch<React.SetStateAction<string>>;
+  handleAdd: (e: React.FormEvent) => void;
 }
 
-function InputField({ todo, setTodo }: TodoInterface) {
+function InputField({ todo, setTodo, handleAdd }: TodoInterface) {
   return (
-    <form>
+    <form onSubmit={handleAdd}>
       <label htmlFor="text">Enter your task</label>
       <br />
       <input
