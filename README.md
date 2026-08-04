@@ -50,7 +50,7 @@ src/
 
 ```bash
 # Clone the repository
-git clone https://github.com/your-username/react-ts-todo.git
+git clone https://github.com/Ahtisham-1/react-ts-todo.git
 
 # Navigate into the project
 cd react-ts-todo
