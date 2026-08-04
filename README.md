@@ -1,75 +1,104 @@
-# React + TypeScript + Vite
+# ✅ React TypeScript Todo App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple and clean Todo application built with **React** and **TypeScript**, supporting task creation, editing, deletion, and completion tracking.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🚀 Features
 
-## React Compiler
+- **Add Todos** — Type a task and add it to your list
+- **Edit Todos** — Inline editing for existing tasks
+- **Delete Todos** — Remove tasks you no longer need
+- **Mark as Done** — Strike through completed tasks
+- **Type-safe** — Fully typed with TypeScript
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 🛠️ Tech Stack
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+| Tool | Purpose |
+|------|---------|
+| React | UI framework |
+| TypeScript | Type safety |
+| React Icons | Edit / Delete / Done icons |
+| CSS | Styling |
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## 📁 Project Structure
 
 ```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
+src/
+├── components/
+│   ├── SingleTodo.tsx     # Individual todo item (edit, delete, done)
+│   └── TodoList.tsx       # Renders the list of todos
+├── Model.ts               # TodoModel type definition
+├── App.tsx                # Root component, holds state
+└── index.tsx              # Entry point
 ```
+
+---
+
+## 📦 Getting Started
+
+### Prerequisites
+
+- Node.js (v16 or higher)
+- npm or yarn
+
+### Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/your-username/react-ts-todo.git
+
+# Navigate into the project
+cd react-ts-todo
+
+# Install dependencies
+npm install
+```
+
+### Running the App
+
+```bash
+npm start
+```
+
+Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+### Building for Production
+
+```bash
+npm run build
+```
+
+---
+
+## 🧩 Data Model
+
+```ts
+// Model.ts
+export interface TodoModel {
+  id: number;
+  todo: string;
+  isDone: boolean;
+}
+```
+
+---
+
+## 🖊️ Usage
+
+1. Type a task into the input field and press **Enter** or click **Add**
+2. Click the ✏️ **edit icon** to modify a task inline, then press **Enter** to save
+3. Click the 🗑️ **delete icon** to remove a task
+4. Click the ✔️ **done icon** to toggle a task as completed (strikes it through)
+
+> **Note:** Completed tasks cannot be edited — the edit icon is disabled when a task is marked as done.
+
+---
+
+## 📄 License
+
+This project is open source and available under the [MIT License](LICENSE).
