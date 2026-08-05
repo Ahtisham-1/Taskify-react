@@ -202,9 +202,21 @@ button {
   outline-offset: 2px;
 }
 
-@media (max-width: 520px) {
+@media (max-width: 620px) {
+  .app-shell {
+    padding: 1.5rem 0.75rem;
+  }
+
   .app-card {
-    padding: 1.5rem;
+    padding: 1.75rem;
+  }
+
+  .app-header h1 {
+    font-size: 2.1rem;
+  }
+
+  .todo-form {
+    gap: 0.85rem;
   }
 
   .input-row {
@@ -214,12 +226,63 @@ button {
   .todo-button {
     width: 100%;
   }
+}
+
+@media (max-width: 520px) {
+  .app-card {
+    padding: 1.25rem;
+    border-radius: 16px;
+  }
+
+  .app-header {
+    gap: 0.65rem;
+  }
+
+  .todo-input,
+  .todo-edit-input {
+    min-height: 3rem;
+    padding: 0.85rem 0.95rem;
+  }
 
   .todo-item {
     grid-template-columns: 1fr;
+    padding: 0.95rem 0.95rem;
   }
 
   .todo-actions {
     justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.75rem;
+  }
+
+  .icon-button {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .app-shell {
+    padding: 1rem 0.75rem;
+  }
+
+  .app-card {
+    width: 100%;
+    padding: 1rem;
+  }
+
+  .app-header h1 {
+    font-size: 1.85rem;
+  }
+
+  .todo-form label,
+  .todo-text {
+    font-size: 0.95rem;
+  }
+
+  .todo-button {
+    min-width: auto;
+    padding: 0.95rem 1rem;
   }
 }
