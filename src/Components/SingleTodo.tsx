@@ -32,30 +32,32 @@ function SingleTodo({ todo, todoArray, setTodoArray }: Props) {
 
     setTodoArray(
       todoArray.map((todoo) =>
-        todoo.id === id ? { ...todo, todo: editTodo } : todo,
+        todoo.id === id ? { ...todoo, todo: editTodo } : todoo,
       ),
     );
     setEdit(false);
   }
 
   return (
-    <form onSubmit={(e) => handleEdit(e, todo.id)}>
+    <form className="todo-item" onSubmit={(e) => handleEdit(e, todo.id)}>
       {edit ? (
         <input
+          className="todo-edit-input"
           type="text"
           value={editTodo}
           onChange={(e) => setEditTodo(e.target.value)}
         />
-      ) : todo.isDone ? (
-        <s className="icon__buttons">{todo.todo}</s>
       ) : (
-        <span className="icon__buttons">{todo.todo}</span>
+        <div className={`todo-text ${todo.isDone ? 'done' : ''}`}>
+          {todo.todo}
+        </div>
       )}
 
-      {/* <span>{todo.todo}</span> */}
-      <div>
-        <span
-          className="icon__buttons"
+      <div className="todo-actions">
+        <button
+          type="button"
+          className="icon-button"
+          aria-label="Edit task"
           onClick={() => {
             if (!edit && !todo.isDone) {
               setEdit(!edit);
@@ -63,13 +65,23 @@ function SingleTodo({ todo, todoArray, setTodoArray }: Props) {
           }}
         >
           <AiFillEdit />
-        </span>
-        <span className="icon__buttons" onClick={() => handleDelete(todo.id)}>
+        </button>
+        <button
+          type="button"
+          className="icon-button"
+          aria-label="Delete task"
+          onClick={() => handleDelete(todo.id)}
+        >
           <AiFillDelete />
-        </span>
-        <span className="icon__buttons" onClick={() => handleDone(todo.id)}>
+        </button>
+        <button
+          type="button"
+          className="icon-button"
+          aria-label="Mark task done"
+          onClick={() => handleDone(todo.id)}
+        >
           <MdDone />
-        </span>
+        </button>
       </div>
     </form>
   );

@@ -8,18 +8,22 @@ interface Props {
 }
 function TodoList({ todoArray, setTodoArray }: Props) {
   return (
-    <div>
-      <ul>
-        {todoArray.map((todo) => (
-          <SingleTodo
-            todo={todo}
-            key={todo.id}
-            todoArray={todoArray}
-            setTodoArray={setTodoArray}
-          />
-        ))}
-      </ul>
-    </div>
+    <section className="todo-list-card">
+      {todoArray.length === 0 ? (
+        <div className="empty-state">No tasks yet. Add something to get started.</div>
+      ) : (
+        <ul className="todo-list">
+          {todoArray.map((todo) => (
+            <SingleTodo
+              todo={todo}
+              key={todo.id}
+              todoArray={todoArray}
+              setTodoArray={setTodoArray}
+            />
+          ))}
+        </ul>
+      )}
+    </section>
   );
 }
 

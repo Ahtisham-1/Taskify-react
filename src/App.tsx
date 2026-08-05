@@ -14,11 +14,16 @@ function App() {
   }
   // console.log(todoArray);
   return (
-    <div>
-      <h1>TASKIFY!</h1>
-      <InputField todo={todo} setTodo={setTodo} handleAdd={handleAdd} />
-      <TodoList todoArray={todoArray} setTodoArray={setTodoArray} />
-    </div>
+    <main className="app-shell">
+      <section className="app-card">
+        <header className="app-header">
+          <h1>TASKIFY!</h1>
+        </header>
+
+        <InputField todo={todo} setTodo={setTodo} handleAdd={handleAdd} />
+        <TodoList todoArray={todoArray} setTodoArray={setTodoArray} />
+      </section>
+    </main>
   );
 }
 
