@@ -134,6 +134,21 @@ button {
   padding: 1rem;
 }
 
+.todo-list-section {
+  margin-bottom: 1.5rem;
+}
+
+.todo-list-section:last-child {
+  margin-bottom: 0;
+}
+
+.todo-list-section h2 {
+  margin: 0 0 1rem;
+  font-size: 1.05rem;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+}
+
 .empty-state {
   padding: 1.5rem;
   border-radius: 15px;
@@ -159,6 +174,15 @@ button {
   border-radius: 15px;
   background: var(--surface);
   border: 1px solid var(--border);
+}
+
+.todo-item.drag-over {
+  background: rgba(240, 138, 51, 0.08);
+  border-color: rgba(240, 138, 51, 0.35);
+}
+
+.todo-item-form {
+  display: contents;
 }
 
 .todo-text {
